@@ -58,6 +58,9 @@
 \newif\if@resetcounter
 \@resetcounterfalse
 
+\newcommand{\trinum}[2][pcolor]{% 定义命令，#1 是底色，#2 是数字
+    \tikz[baseline]{\node[fill=#1, text=white, rounded corners=1mm, inner sep=2pt, yshift=1.5mm](n) {#2};}
+}
 
 % 定义段落环境
 \newenvironment{Paragraph}[1][]
@@ -69,14 +72,14 @@
     \fi
     \stepcounter{ParagraphCounter}
     
-    \tikz[baseline]{\node[fill=pcolor, text=white, rounded corners=1mm, inner sep=2pt, yshift=1.5mm](n) {\fontsize{10pt}{0}{\heiti{第\chinese{ParagraphCounter}段}}};}
+    \trinum{\fontsize{10pt}{0}{\heiti{第\chinese{ParagraphCounter}段}}}
 }{%
 
 }
 
-\newcommand{\circlednum}[2][yellow]{% 定义命令，#1 是底色，#2 是数字
+\newcommand{\circlednum}[2][scolor]{% 定义命令，#1 是底色，#2 是数字
   \tikz[baseline]{
-    \node[shape=circle,font=\fontsize{10pt}{12pt}\selectfont, fill=scolor, draw=white, inner sep=2pt, yshift=1.8mm] (char) {\color{white}{#2}};
+    \node[shape=circle,font=\fontsize{10pt}{12pt}\selectfont, fill=#1, draw=white, inner sep=2pt, yshift=1.8mm] (char) {\color{white}{#2}};
   }%
 }
 
@@ -88,7 +91,7 @@
     \stepcounter{SentenceCounter}
     \begin{spacing}{1.3} % 设置行间距为 1.5 倍
     \noindent % 取消段落缩进
-    \circlednum{\arabic{SentenceCounter}} #1
+    \circlednum[scolor]{\arabic{SentenceCounter}} #1
     \end{spacing}
     \par
     \vspace*{0.5cm}
@@ -138,11 +141,11 @@
               ]  
             (current page.north east) ++(-5.4cm,-2cm) rectangle ++(\textwidth/2.4,-\textheight);
         % 仅绘制左侧边
-        \draw[themeColor, line width=2pt] (current page.north east) ++(-5.4cm, -2cm) -- ++(0,-\textheight);
+        \draw[themeColor, line width=1.5pt] (current page.north east) ++(-5.4cm, -2cm) -- ++(0,-\textheight);
         % 在矩形上方添加文字
         \node[anchor=north east, xshift=-3.0cm, yshift=-2.2cm,align=center] at (current page.north east) {\heiti \color{themeColor}\fontsize{10pt}{0}{\ding{45} 词汇手记}};
-        \node[anchor=south west, xshift=-5.2cm, yshift=1.2cm,align=center] at (current page.south east) {\heiti \color{themeColor}\fontsize{10pt}{0}{\leftmark}};
-        \node[anchor=south west, xshift=-5.2cm, yshift=0.8cm,align=center] at (current page.south east) {\heiti \color{themeColor}\fontsize{10pt}{0}{\rightmark}};
+        \node[anchor=south west, xshift=-5.6cm, yshift=0.8cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \leftmark}};
+        \node[anchor=south west, xshift=-5.6cm, yshift=0.3cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \rightmark}};
     \end{tikzpicture}
     }
 }
@@ -199,8 +202,8 @@
 {} % 标题编号
 {0em} % 与标题编号的间距
 {} % 标题之后的间距
-\renewcommand{\sectionmark}[1]{\markboth{\heiti \fontsize{12}{0}{\textbf{#1}}}{}}
-\renewcommand{\subsectionmark}[1]{\markright{\fontsize{12}{0}{\textbf{#1}}}{}}
+\renewcommand{\sectionmark}[1]{\markboth{\heiti \fontsize{10}{0}{\textbf{#1}}}{}}
+\renewcommand{\subsectionmark}[1]{\markright{\fontsize{10}{0}{\textbf{#1}}}{}}
 % 清除原有页码
 \pagenumbering{gobble}  % 禁用默认页码
 

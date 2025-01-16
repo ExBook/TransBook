@@ -44,10 +44,11 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage} % 添加 lastpage 包
 \RequirePackage{tcolorbox}
+\RequirePackage{fontspec}
 
 
-\setmainfont{Times New Roman} % 设置全局英文字体为 Times New Roman
-\geometry{a4paper, left=18mm, right=60mm, top=20mm, bottom=20mm, headsep=5mm}   
+% \setmainfont{Times New Roman} % 设置全局英文字体为 Times New Roman
+\geometry{a4paper, left=18mm, right=60mm, top=25mm, bottom=20mm, headsep=5mm}   
 
 \setstretch{1.8} % 设置全局行间距为 1.5 倍
 \setlength{\parindent}{0pt}
@@ -73,6 +74,9 @@
     \stepcounter{ParagraphCounter}
     
     \trinum{\fontsize{10pt}{0}{\heiti{第\chinese{ParagraphCounter}段}}}
+    
+% \setmainfont{Times New Roman} % 设置全局英文字体为 Times New Roman
+
 }{%
 
 }
@@ -85,13 +89,14 @@
 
 \newlength{\sentenceLength}
 
+\newfontface\myfont{Times New Roman}
 
 % 定义句子命令
 \newcommand\Sentence[1]{%
     \stepcounter{SentenceCounter}
     \begin{spacing}{1.3} % 设置行间距为 1.5 倍
     \noindent % 取消段落缩进
-    \circlednum[scolor]{\arabic{SentenceCounter}} #1
+    \circlednum[scolor]{\arabic{SentenceCounter}} \begingroup \myfont #1  \endgroup
     \end{spacing}
     \par
     \vspace*{0.5cm}
@@ -139,13 +144,13 @@
               left color=themeColor!7, % 左侧颜色
               draw=none, % 不绘制默认边框
               ]  
-            (current page.north east) ++(-5.4cm,-2cm) rectangle ++(\textwidth/2.4,-\textheight);
+            (current page.north east) ++(-5.4cm,-2.5cm) rectangle ++(\textwidth/2.4,-\textheight);
         % 仅绘制左侧边
-        \draw[themeColor, line width=1.5pt] (current page.north east) ++(-5.4cm, -2cm) -- ++(0,-\textheight);
+        \draw[themeColor, line width=1.5pt] (current page.north east) ++(-5.4cm, -2.5cm) -- ++(0,-\textheight);
         % 在矩形上方添加文字
-        \node[anchor=north east, xshift=-3.0cm, yshift=-2.2cm,align=center] at (current page.north east) {\heiti \color{themeColor}\fontsize{10pt}{0}{\ding{45} 词汇手记}};
-        \node[anchor=south west, xshift=-5.6cm, yshift=0.8cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \leftmark}};
-        \node[anchor=south west, xshift=-5.6cm, yshift=0.3cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \rightmark}};
+        \node[anchor=north east, xshift=-3.0cm, yshift=-2.7cm,align=center] at (current page.north east) {\heiti \color{themeColor}\fontsize{10pt}{0}{\ding{45} 词汇手记}};
+        \node[anchor=south west, xshift=-5.6cm, yshift=0.9cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \leftmark}};
+        \node[anchor=south west, xshift=-5.6cm, yshift=0.4cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \rightmark}};
     \end{tikzpicture}
     }
 }
@@ -157,13 +162,13 @@
 % 自定义 \section 标题在目录中的样式
 
 \titlecontents{section}[0em]
-{\setcounter{ParagraphCounter}{0}\heiti}
+{\setcounter{ParagraphCounter}{0}\heiti\myfont}
 {}
 {}
 {\titlerule*[0.4pc]{.}\contentspage}
 
 \titlecontents{subsection}[2em]
-{}
+{\bfseries\myfont}
 {}
 {}
 {\titlerule*[0.4pc]{.}\contentspage}
@@ -191,14 +196,14 @@
 
 % 自定义 \section 标题样式
 \titleformat{\section}[block]
-{\newpage \centering\heiti\normalsize}
+{\newpage \centering\heiti\normalsize\myfont}
 {}
 {0em}
 {} % 居中、字体和大小，每一个section都重启一页
 
 % 自定义 \subsection 标题样式
 \titleformat{\subsection}
-{\normalfont\normalsize\bfseries\centering} % 字体和大小
+{\myfont\normalsize\bfseries\centering} % 字体和大小
 {} % 标题编号
 {0em} % 与标题编号的间距
 {} % 标题之后的间距
@@ -211,7 +216,7 @@
 \pagenumbering{arabic}
 
 
-\fancyfoot[L]{\thepage}  % 将页码放置在页面底部居中
+\fancyfoot[L]{\myfont\thepage}  % 将页码放置在页面底部居中
 % 去除页眉横线
 \renewcommand{\headrulewidth}{0pt} 
 % 去除页脚横线

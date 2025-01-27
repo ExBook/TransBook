@@ -45,6 +45,9 @@
 \RequirePackage{lastpage} % 添加 lastpage 包
 \RequirePackage{tcolorbox}
 \RequirePackage{fontspec}
+\RequirePackage{hyperref}
+
+\hypersetup {colorlinks=true,linkcolor=black, urlcolor=themeColor, citecolor=red}
 
 
 % \setmainfont{Times New Roman} % 设置全局英文字体为 Times New Roman
@@ -152,6 +155,17 @@
         \node[anchor=south west, xshift=-5.6cm, yshift=0.9cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \leftmark}};
         \node[anchor=south west, xshift=-5.6cm, yshift=0.4cm,align=center] at (current page.south east) {\trinum[themeColor]{\heiti \rightmark}};
     \end{tikzpicture}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        % % 在页面右侧绘制一个矩形
+        % \draw[fill=themeColor!7, draw=themeColor, rounded corners=6pt, dashed] 
+        %     (current page.north east) ++(-5.4cm,\topmargin) rectangle ++(\textwidth/3.6,-\textheight);
+        \draw[fill=themeColor!6.2, 
+              draw=none, % 不绘制默认边框
+              ]  
+            (current page.south west) ++(0cm,2cm) rectangle ++(0.8cm,2.4cm);
+        \node[anchor=south west, xshift=0.8cm, yshift=2.25cm,align=center, rotate=90] at (current page.south west) {\heiti \color{white}研小布};
+    \end{tikzpicture}
     }
 }
 
@@ -216,7 +230,8 @@
 \pagenumbering{arabic}
 
 
-\fancyfoot[L]{\myfont\thepage}  % 将页码放置在页面底部居中
+\fancyfoot[L]{\myfont\thepage/\pageref{LastPage}}  % 将页码放置在页面底部居中
+\fancyfoot[C]{\fontsize{10pt}{4pt}{\kaishu 此手译本由公众号【研小布】排版制作}}  % 将页码放置在页面底部居中
 % 去除页眉横线
 \renewcommand{\headrulewidth}{0pt} 
 % 去除页脚横线

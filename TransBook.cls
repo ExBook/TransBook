@@ -113,7 +113,7 @@
         \noindent\textcolor{black}{\rule[0.5ex]{\linewidth}{0.8pt}} % 添加整行的可调节粗细的空白下划线
         \par
         \advance\@tempcnta by -1
-    \ifnum\@tempcnta>0
+    \ifnum\@tempcnta>1
     \repeat
 
     \@tempdimb=\dimexpr\sentenceLength\relax 

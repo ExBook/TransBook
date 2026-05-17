@@ -120,9 +120,3 @@ TransBook/
 ## 许可证
 
 MIT License
-
----
-
-## 致谢
-
-TransBook、ExBook、ExPress 均为 MA WEI JIAN 原创的 LaTeX 文档类系列项目。

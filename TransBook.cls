@@ -346,7 +346,7 @@
     {}
 
 \titleformat{\subsection}
-    {\SentenceFont\normalsize\bfseries\centering}
+    {\fontspec{Times New Roman}\normalsize\bfseries\centering}
     {}
     {0em}
     {}
@@ -472,12 +472,12 @@
                 at (current page.south east)
                 {\trinum[themeColor]{\heiti\truncate{4cm}{\rightmark}}};
 
-            % 左下角品牌标识
+            % 左下角品牌标识（文字居中于色块内）
             \draw[fill=themeColor!6.2, draw=none]
                 (current page.south west) ++(0cm, 2cm)
                 rectangle ++(0.8cm, 2.4cm);
-            \node[anchor=south west, xshift=0.8cm, yshift=2.25cm, align=center, rotate=90]
-                at (current page.south west)
+            \node[anchor=center, rotate=90]
+                at ([xshift=0.4cm, yshift=3.2cm]current page.south west)
                 {\heiti\color{white}\TransBook@value@BrandName};
         \end{tikzpicture}%
     }%

@@ -338,7 +338,7 @@
 \titlespacing{\subsection}{0pt}{2pt plus 2pt minus 2pt}{2pt plus 2pt minus 2pt}
 
 \titleformat{\section}[block]
-    {\newpage\centering\heiti\normalsize}
+    {\newpage\centering\SentenceFont\heiti\normalsize}
     {}
     {0em}
     {}
@@ -349,8 +349,8 @@
     {0em}
     {}
 
-\renewcommand{\sectionmark}[1]{\markboth{\heiti\fontsize{10}{0}{\textbf{#1}}}{\heiti\fontsize{10}{0}{\textbf{#1}}}}
-\renewcommand{\subsectionmark}[1]{\markright{\fontsize{10}{0}{\SentenceFont\textbf{#1}}}{}}
+\renewcommand{\sectionmark}[1]{\markboth{\SentenceFont\heiti\fontsize{10}{0}{#1}}{\SentenceFont\heiti\fontsize{10}{0}{#1}}}
+\renewcommand{\subsectionmark}[1]{\markright{\fontsize{10}{0}{\SentenceFont #1}}{}}
 
 % ============================================================
 % Section 11 : 段落与句子系统

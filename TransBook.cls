@@ -210,16 +210,16 @@
 
             % --- 左侧主题色竖条 ---
             \fill[themeColor] (current page.north west)
-                rectangle ++(0.42\paperwidth, -\paperheight);
+                rectangle ++(0.12\paperwidth, -\paperheight);
 
             % --- 竖条内白色装饰细线 ---
             \draw[line width=0.2pt, white!30]
-                ([xshift=0.42\paperwidth-3mm]current page.north west)
+                ([xshift=0.12\paperwidth-3mm]current page.north west)
                 -- ++(0, -\paperheight);
 
             % --- 右侧「稿纸区」：英文句子 + 翻译横线 ---
             \node[anchor=north west, text width=0.52\paperwidth]
-                at ([xshift=0.46\paperwidth, yshift=-0.25\paperheight]current page.north west)
+                at ([xshift=0.16\paperwidth, yshift=-0.25\paperheight]current page.north west)
                 {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!40}
                  \textit{The only way to do great work is to love what you do.}
                  \par\vspace{4pt}
@@ -230,7 +230,7 @@
                 };
 
             \node[anchor=north west, text width=0.52\paperwidth]
-                at ([xshift=0.46\paperwidth, yshift=-0.45\paperheight]current page.north west)
+                at ([xshift=0.16\paperwidth, yshift=-0.45\paperheight]current page.north west)
                 {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!30}
                  \textit{Stay hungry, stay foolish.}
                  \par\vspace{4pt}
@@ -240,7 +240,7 @@
                 };
 
             \node[anchor=north west, text width=0.52\paperwidth]
-                at ([xshift=0.46\paperwidth, yshift=-0.68\paperheight]current page.north west)
+                at ([xshift=0.16\paperwidth, yshift=-0.62\paperheight]current page.north west)
                 {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!20}
                  \textit{The best way to predict the future is to create it.}
                  \par\vspace{4pt}
@@ -248,32 +248,32 @@
                  \rule{\linewidth}{0.5pt}%
                 };
 
-            % --- 标题区（叠在竖条右侧）---
+            % --- 标题区（深色文字，在稿纸色背景上清晰可见）---
             \node[anchor=north west, align=left]
-                at ([xshift=0.04\paperwidth, yshift=-0.78\paperheight]current page.north west)
-                {\fontsize{12pt}{16pt}\selectfont\color{white!70} \TransBook@value@PreTitle};
+                at ([xshift=0.15\paperwidth, yshift=-0.78\paperheight]current page.north west)
+                {\fontsize{12pt}{16pt}\selectfont\color{themeColor!80} \TransBook@value@PreTitle};
 
             \node[anchor=north west, align=left, text width=0.75\paperwidth]
-                at ([xshift=0.04\paperwidth, yshift=-0.82\paperheight]current page.north west)
-                {\fontsize{36pt}{42pt}\selectfont\bfseries\color{white} \TransBook@value@Title};
+                at ([xshift=0.15\paperwidth, yshift=-0.82\paperheight]current page.north west)
+                {\fontsize{36pt}{42pt}\selectfont\bfseries\color{black!85} \TransBook@value@Title};
 
             % --- 副标题 ---
             \node[anchor=north west, align=left]
-                at ([xshift=0.04\paperwidth, yshift=-0.89\paperheight]current page.north west)
-                {\fontsize{16pt}{22pt}\selectfont\color{white!65} \TransBook@value@Subtitle};
+                at ([xshift=0.15\paperwidth, yshift=-0.89\paperheight]current page.north west)
+                {\fontsize{16pt}{22pt}\selectfont\color{black!55} \TransBook@value@Subtitle};
 
             % --- 底部信息 ---
             \node[anchor=south west, align=left]
-                at ([xshift=0.04\paperwidth, yshift=0.08\paperheight]current page.south west)
-                {\fontsize{10pt}{14pt}\selectfont\color{white!55} \TransBook@value@Author};
+                at ([xshift=0.15\paperwidth, yshift=0.08\paperheight]current page.south west)
+                {\fontsize{10pt}{14pt}\selectfont\color{black!70} \TransBook@value@Author};
 
             \node[anchor=south west, align=left]
-                at ([xshift=0.04\paperwidth, yshift=0.04\paperheight]current page.south west)
-                {\fontsize{8pt}{10pt}\selectfont\color{white!40} \TransBook@value@UpdateTime};
+                at ([xshift=0.15\paperwidth, yshift=0.04\paperheight]current page.south west)
+                {\fontsize{8pt}{10pt}\selectfont\color{black!35} \TransBook@value@UpdateTime};
 
             % --- 座右铭 ---
             \node[anchor=south east, align=right]
-                at ([xshift=0.38\paperwidth-1cm, yshift=0.06\paperheight]current page.south east)
+                at ([xshift=-1cm, yshift=0.06\paperheight]current page.south east)
                 {\fontsize{9pt}{13pt}\selectfont\color{black!25}\itshape \TransBook@value@Motto};
 
             % --- 封面图片叠加（可选）---
@@ -281,10 +281,10 @@
             \else
                 \node[anchor=north east, inner sep=0pt]
                     at (current page.north east)
-                    {\includegraphics[width=0.42\paperwidth, height=\paperheight,
+                    {\includegraphics[width=0.88\paperwidth, height=\paperheight,
                         keepaspectratio=false]{\TransBook@value@CoverImg}};
                 \fill[black!60, opacity=0.5]
-                    (current page.north east) rectangle ++(-0.42\paperwidth, -\paperheight);
+                    (current page.north east) rectangle ++(-0.88\paperwidth, -\paperheight);
             \fi
 
             % --- 在线勘误链接 ---

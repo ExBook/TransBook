@@ -118,13 +118,11 @@
     \else
         \definecolor{themeColor}{HTML}{015697}%
     \fi
+    \colorlet{scolor}{themeColor!80!black}% 句子编号圆圈色跟随主题色更新
 }
 
 % 应用默认主题色
 \setThemeColor{\orange}
-
-% 二级色：句子编号圆圈用色（themeColor 加深变体）
-\colorlet{scolor}{themeColor!80!black}
 
 % ============================================================
 % Section 5 : 页面几何

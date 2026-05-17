@@ -122,7 +122,7 @@
 }
 
 % 应用默认主题色
-\setThemeColor{\orange}
+\setThemeColor{\purple}
 
 % ============================================================
 % Section 5 : 页面几何
@@ -349,7 +349,7 @@
     {0em}
     {}
 
-\renewcommand{\sectionmark}[1]{\markboth{\heiti\fontsize{10}{0}{\textbf{#1}}}{}}
+\renewcommand{\sectionmark}[1]{\markboth{\heiti\fontsize{10}{0}{\textbf{#1}}}{\heiti\fontsize{10}{0}{\textbf{#1}}}}
 \renewcommand{\subsectionmark}[1]{\markright{\fontsize{10}{0}{\SentenceFont\textbf{#1}}}{}}
 
 % ============================================================

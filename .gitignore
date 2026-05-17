@@ -1,0 +1,13 @@
+# Build output
+build/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# macOS
+.DS_Store

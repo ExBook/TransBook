@@ -1,70 +1,98 @@
-\documentclass[fandol]{TransBook}
+% ============================================================
+% TransBook 示例文档
+% 编译：latexmk main.tex 或 xelatex main.tex
+% ============================================================
+\documentclass[fandol, showtrans]{TransBook}
 
 \begin{document}
 
-% 保存原始的页边距设置 
-\newgeometry{left=18mm,right=18mm,top=20mm,bottom=20mm}
+% 加载配置
+\include{config}
 
+% 封面
+\maketitle
+
+% 目录（使用缩小右边距以便排版）
+\newgeometry{left=18mm, right=18mm, top=20mm, bottom=20mm}
 \tableofcontents
 \label{TOC}
 \clearpage
-\newpage
-% 恢复原始的页边距设置
 \restoregeometry
- 
-\section{2021年英语一真题阅读}
-\subsection{Text 1}
-\begin{Paragraph}[r]
- 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper.} 
 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
- 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+% ============================================================
+\section{2021 年英语一真题阅读}
+\subsection{Text 1 — The Value of Higher Education}
 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+\begin{Paragraph}[reset]
+
+    \Sentence{How does the author view the value of higher education in the
+    modern economy?}
+
+    \Sentence{The financial return on a college degree has become a
+    widely debated topic, with some arguing that the rising cost of tuition
+    has diminished the economic benefits.}
+
+    \Sentence{However, recent research suggests that the wage premium
+    for college graduates remains substantial, particularly in fields
+    requiring specialized technical skills.}
+
+    \Sentence{Moreover, the non-monetary benefits of education — including
+    better health outcomes, greater civic engagement, and higher life
+    satisfaction — are often overlooked in cost-benefit analyses.}
+    \begin{translation}
+        高等教育的非货币收益——包括更好的健康状况、更高的公民参与度
+        以及更高的生活满意度——在成本效益分析中常常被忽视。
+    \end{translation}
+
 \end{Paragraph}
 
-\begin{Paragraph}[r]
-    % \Sentence{hello word}
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+\begin{Paragraph}[reset]
 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+    \Sentence{What is the main concern raised about the cost of college?}
 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+    \Sentence{The primary concern is that tuition fees have grown at a rate
+    far exceeding inflation, placing an increasingly heavy burden on
+    middle-class families who do not qualify for substantial financial aid.}
 
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+    \Sentence{This has led to a situation where students from disadvantaged
+    backgrounds are either priced out of higher education entirely or forced
+    to take on significant debt that constrains their career choices.}
+    \begin{translation}
+        这导致了一种情况：来自弱势背景的学生要么完全被高等教育
+        的高昂费用拒之门外，要么被迫承担巨额债务，从而限制了他们的职业选择。
+    \end{translation}
+
+    \Sentence{Policymakers have proposed various solutions, ranging from
+    income-driven repayment plans to tuition-free community college
+    programs, but consensus remains elusive.}
+
 \end{Paragraph}
 
-\begin{Paragraph}[r]
-    % \Sentence{hello word}
-    \Sentence{Fusce mauris. Vestibulum luctus nibh at lectus. Sed bi-
-    bendum, nulla a faucibus semper, leo velit ultricies tellus, ac
-    venenatis arcu wisi vel nisl. Vestibulum diam. Aliquam pellen-
-    tesque, augue quis sagittis posuere.} 
+% ============================================================
+\section{2021 年英语一真题阅读}
+\subsection{Text 2 — Climate Policy Challenges}
+
+\begin{Paragraph}[reset]
+
+    \Sentence{The implementation of effective climate policies faces
+    numerous obstacles at both the national and international levels.}
+
+    \Sentence{While the scientific consensus on anthropogenic climate
+    change is overwhelming, translating this consensus into actionable
+    policy has proven remarkably difficult.}
+
+    \Sentence{One key challenge is the temporal mismatch between the
+    immediate costs of climate action and the long-term benefits,
+    which creates political incentives for inaction.}
+
+    \Sentence{Furthermore, the unequal distribution of climate impacts
+    across different regions and socioeconomic groups complicates
+    efforts to build broad-based political coalitions.}
+    \begin{translation}
+        此外，气候变化对不同地区和社会经济群体的影响分布不均，
+        这使得建立广泛政治联盟的努力变得更加复杂。
+    \end{translation}
+
 \end{Paragraph}
 
-
-\end{document} 
+\end{document}

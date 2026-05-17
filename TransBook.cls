@@ -194,114 +194,103 @@
 }
 
 % ============================================================
-
-% ============================================================
 % Section 8 : 封面设计 ——「稿纸手写」风格
 %
-% 左侧 38% 宽主题色竖条承载所有标题文字（白字），
-% 右侧 62% 稿纸区放置英文例句和翻译横线装饰。
-% 所有文字位于色块范围内，确保白字/深底的对比度。
+% 设计理念：封面直接唤起「翻译练习」的体验。
+% 右侧为交错的英文句子和空白翻译横线（模拟手译本的内部页面），
+% 左侧为主题色竖条 + 大标题，底部为作者信息。
 % ============================================================
 
 \renewcommand{\maketitle}{%
     \begin{titlepage}
         \begin{tikzpicture}[remember picture, overlay]
 
-            % --- 右侧背景：温暖稿纸色 ---
-            \fill[black!3] ([xshift=0.38\paperwidth]current page.north west)
-                rectangle ++(0.62\paperwidth, -\paperheight);
+            % --- 背景：温暖稿纸色 ---
+            \fill[black!3] (current page.north west) rectangle ++(\paperwidth, -\paperheight);
 
-            % --- 左侧主题色竖条（38% 页宽）---
+            % --- 左侧主题色竖条 ---
             \fill[themeColor] (current page.north west)
-                rectangle ++(0.38\paperwidth, -\paperheight);
+                rectangle ++(0.42\paperwidth, -\paperheight);
 
-            % --- 竖条右侧渐变过渡带 ---
-            \fill[themeColor, opacity=0.12]
-                ([xshift=0.38\paperwidth]current page.north west)
-                rectangle ++(0.04\paperwidth, -\paperheight);
+            % --- 竖条内白色装饰细线 ---
+            \draw[line width=0.2pt, white!30]
+                ([xshift=0.42\paperwidth-3mm]current page.north west)
+                -- ++(0, -\paperheight);
 
-            % --- 右侧「稿纸区」：两句英文 + 翻译横线装饰 ---
-            \node[anchor=north west, text width=0.48\paperwidth]
-                at ([xshift=0.45\paperwidth, yshift=-0.20\paperheight]current page.north west)
-                {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!35}
-                 \textit{The only way to do great work}
-                 \par
-                 \textit{is to love what you do.}
-                 \par\vspace{8pt}
-                 \textcolor{black!15}{\rule{\linewidth}{0.4pt}}\par\vspace{2pt}
-                 \textcolor{black!12}{\rule{\linewidth}{0.4pt}}\par\vspace{2pt}
-                 \textcolor{black!10}{\rule{\linewidth}{0.4pt}}%
+            % --- 右侧「稿纸区」：英文句子 + 翻译横线 ---
+            \node[anchor=north west, text width=0.52\paperwidth]
+                at ([xshift=0.46\paperwidth, yshift=-0.25\paperheight]current page.north west)
+                {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!40}
+                 \textit{The only way to do great work is to love what you do.}
+                 \par\vspace{4pt}
+                 \rule{\linewidth}{0.5pt}\par\vspace{2pt}
+                 \rule{\linewidth}{0.5pt}\par\vspace{2pt}
+                 \rule{\linewidth}{0.5pt}\par\vspace{2pt}
+                 \rule{\linewidth}{0.5pt}%
                 };
 
-            \node[anchor=north west, text width=0.48\paperwidth]
-                at ([xshift=0.45\paperwidth, yshift=-0.48\paperheight]current page.north west)
-                {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!20}
+            \node[anchor=north west, text width=0.52\paperwidth]
+                at ([xshift=0.46\paperwidth, yshift=-0.45\paperheight]current page.north west)
+                {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!30}
                  \textit{Stay hungry, stay foolish.}
-                 \par\vspace{8pt}
-                 \textcolor{black!12}{\rule{\linewidth}{0.4pt}}\par\vspace{2pt}
-                 \textcolor{black!08}{\rule{\linewidth}{0.4pt}}%
+                 \par\vspace{4pt}
+                 \rule{\linewidth}{0.5pt}\par\vspace{2pt}
+                 \rule{\linewidth}{0.5pt}\par\vspace{2pt}
+                 \rule{\linewidth}{0.5pt}%
                 };
 
-            % --- 头部装饰横线（色块内顶部）---
-            \draw[line width=0.3pt, white!25]
-                ([xshift=1.8cm, yshift=-2cm]current page.north west)
-                -- ++(0.35\paperwidth-2.8cm, 0);
+            \node[anchor=north west, text width=0.52\paperwidth]
+                at ([xshift=0.46\paperwidth, yshift=-0.68\paperheight]current page.north west)
+                {\fontsize{11pt}{16pt}\selectfont\rmfamily\color{black!20}
+                 \textit{The best way to predict the future is to create it.}
+                 \par\vspace{4pt}
+                 \rule{\linewidth}{0.5pt}\par\vspace{2pt}
+                 \rule{\linewidth}{0.5pt}%
+                };
 
-            % --- 前置标题 ---
+            % --- 标题区（叠在竖条右侧）---
             \node[anchor=north west, align=left]
-                at ([xshift=1.8cm, yshift=-0.30\paperheight]current page.north west)
-                {\fontsize{12pt}{16pt}\selectfont\color{white!60} \TransBook@value@PreTitle};
+                at ([xshift=0.04\paperwidth, yshift=-0.78\paperheight]current page.north west)
+                {\fontsize{12pt}{16pt}\selectfont\color{white!70} \TransBook@value@PreTitle};
 
-            % --- 主标题（大字白字，完全在色块内）---
-            \node[anchor=north west, align=left, text width=0.34\paperwidth]
-                at ([xshift=1.8cm, yshift=-0.36\paperheight]current page.north west)
-                {\fontsize{32pt}{38pt}\selectfont\bfseries\color{white} \TransBook@value@Title};
-
-            % --- 装饰短线（主标题下方，白色半透明）---
-            \draw[line width=1.5pt, white!40]
-                ([xshift=1.8cm, yshift=-0.56\paperheight]current page.north west)
-                -- ++(3cm, 0);
+            \node[anchor=north west, align=left, text width=0.75\paperwidth]
+                at ([xshift=0.04\paperwidth, yshift=-0.82\paperheight]current page.north west)
+                {\fontsize{36pt}{42pt}\selectfont\bfseries\color{white} \TransBook@value@Title};
 
             % --- 副标题 ---
-            \node[anchor=north west, align=left, text width=0.34\paperwidth]
-                at ([xshift=1.8cm, yshift=-0.60\paperheight]current page.north west)
-                {\fontsize{14pt}{20pt}\selectfont\color{white!55} \TransBook@value@Subtitle};
+            \node[anchor=north west, align=left]
+                at ([xshift=0.04\paperwidth, yshift=-0.89\paperheight]current page.north west)
+                {\fontsize{16pt}{22pt}\selectfont\color{white!65} \TransBook@value@Subtitle};
 
-            % --- 底部装饰横线（色块内）---
-            \draw[line width=0.3pt, white!20]
-                ([xshift=1.8cm, yshift=0.20\paperheight]current page.south west)
-                -- ++(0.35\paperwidth-2.8cm, 0);
-
-            % --- 作者（底部，色块内）---
+            % --- 底部信息 ---
             \node[anchor=south west, align=left]
-                at ([xshift=1.8cm, yshift=0.13\paperheight]current page.south west)
-                {\fontsize{11pt}{15pt}\selectfont\color{white!65} \TransBook@value@Author};
+                at ([xshift=0.04\paperwidth, yshift=0.08\paperheight]current page.south west)
+                {\fontsize{10pt}{14pt}\selectfont\color{white!55} \TransBook@value@Author};
 
-            % --- 更新时间 ---
             \node[anchor=south west, align=left]
-                at ([xshift=1.8cm, yshift=0.08\paperheight]current page.south west)
-                {\fontsize{8pt}{10pt}\selectfont\color{white!35} \TransBook@value@UpdateTime};
+                at ([xshift=0.04\paperwidth, yshift=0.04\paperheight]current page.south west)
+                {\fontsize{8pt}{10pt}\selectfont\color{white!40} \TransBook@value@UpdateTime};
 
-            % --- 座右铭（右侧稿纸区底部）---
+            % --- 座右铭 ---
             \node[anchor=south east, align=right]
-                at ([xshift=-1.5cm, yshift=0.06\paperheight]current page.south east)
+                at ([xshift=0.38\paperwidth-1cm, yshift=0.06\paperheight]current page.south east)
                 {\fontsize{9pt}{13pt}\selectfont\color{black!25}\itshape \TransBook@value@Motto};
 
-            % --- 封面图片叠加（可选，覆盖在色块上）---
+            % --- 封面图片叠加（可选）---
             \ifx\TransBook@value@CoverImg\empty
             \else
-                \node[anchor=north west, inner sep=0pt]
-                    at (current page.north west)
-                    {\includegraphics[width=0.38\paperwidth, height=\paperheight,
+                \node[anchor=north east, inner sep=0pt]
+                    at (current page.north east)
+                    {\includegraphics[width=0.42\paperwidth, height=\paperheight,
                         keepaspectratio=false]{\TransBook@value@CoverImg}};
-                \fill[themeColor, opacity=0.85]
-                    (current page.north west) rectangle ++(0.38\paperwidth, -\paperheight);
+                \fill[black!60, opacity=0.5]
+                    (current page.north east) rectangle ++(-0.42\paperwidth, -\paperheight);
             \fi
 
-            % --- 在线勘误链接（可选）---
+            % --- 在线勘误链接 ---
             \if@online
                 \node[anchor=south east, align=right]
-                    at ([xshift=-1.5cm, yshift=0.02\paperheight]current page.south east)
+                    at ([xshift=-1cm, yshift=0.02\paperheight]current page.south east)
                     {\fontsize{7pt}{9pt}\selectfont\color{themeColor!40}
                      \href{\TransBook@value@OnlineCheckUrl}{在线勘误 →}};
             \fi
@@ -313,6 +302,7 @@
     \fi
 }
 
+% ============================================================
 % Section 9 : 页眉页脚
 % ============================================================
 \pagestyle{fancy}

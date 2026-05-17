@@ -264,11 +264,11 @@
 
             % --- 底部信息 ---
             \node[anchor=south west, align=left]
-                at ([xshift=0.15\paperwidth, yshift=0.08\paperheight]current page.south west)
+                at ([xshift=0.15\paperwidth, yshift=0.04\paperheight]current page.south west)
                 {\fontsize{10pt}{14pt}\selectfont\color{black!70} \TransBook@value@Author};
 
             \node[anchor=south west, align=left]
-                at ([xshift=0.15\paperwidth, yshift=0.04\paperheight]current page.south west)
+                at ([xshift=0.15\paperwidth, yshift=0.015\paperheight]current page.south west)
                 {\fontsize{8pt}{10pt}\selectfont\color{black!35} \TransBook@value@UpdateTime};
 
             % --- 座右铭 ---

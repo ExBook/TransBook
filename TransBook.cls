@@ -67,6 +67,7 @@
 \RequirePackage{fontspec}
 \RequirePackage{hyperref}
 \RequirePackage{pgfmath}
+\RequirePackage{truncate}
 \RequirePackage{xkeyval}
 
 \usetikzlibrary{fadings,shapes,positioning}
@@ -318,22 +319,22 @@
 % Section 10 : 章/节标题格式化
 % ============================================================
 \titlecontents{section}[0em]
-    {\setcounter{ParagraphCounter}{0}\heiti}
+    {\setcounter{ParagraphCounter}{0}\heiti\SentenceFont}
     {}
     {}
-    {\titlerule*[0.4pc]{.}\contentspage}
+    {\titlerule*[0.15pc]{\textperiodcentered}\contentspage}
 
 \titlecontents{subsection}[2em]
-    {\bfseries}
+    {\bfseries\SentenceFont}
     {}
     {}
-    {\titlerule*[0.4pc]{.}\contentspage}
+    {\titlerule*[0.15pc]{\textperiodcentered}\contentspage}
 
 \titlecontents{subsubsection}[4em]
+    {\SentenceFont}
     {}
     {}
-    {}
-    {\titlerule*[0.4pc]{.}\contentspage}
+    {\titlerule*[0.15pc]{\textperiodcentered}\contentspage}
 
 \titlespacing{\section}{0pt}{2pt plus 2pt minus 2pt}{4pt plus 2pt minus 2pt}
 \titlespacing{\subsection}{0pt}{2pt plus 2pt minus 2pt}{2pt plus 2pt minus 2pt}
@@ -345,13 +346,13 @@
     {}
 
 \titleformat{\subsection}
-    {\normalsize\bfseries\centering}
+    {\SentenceFont\normalsize\bfseries\centering}
     {}
     {0em}
     {}
 
 \renewcommand{\sectionmark}[1]{\markboth{\heiti\fontsize{10}{0}{\textbf{#1}}}{}}
-\renewcommand{\subsectionmark}[1]{\markright{\fontsize{10}{0}{\textbf{#1}}}{}}
+\renewcommand{\subsectionmark}[1]{\markright{\fontsize{10}{0}{\SentenceFont\textbf{#1}}}{}}
 
 % ============================================================
 % Section 11 : 段落与句子系统
@@ -402,6 +403,7 @@
         \advance\@tempcnta by -1
     \ifnum\@tempcnta>0
     \repeat
+    \vspace*{0.5cm}% 句子之间的间距
 }
 
 % ============================================================
@@ -436,6 +438,7 @@
 }{%
     \if@showtrans
         \end{tcolorbox}\par
+        \vspace*{0.5cm}% 译文与下一句之间的间距
     \else
         \egroup
     \fi
@@ -464,10 +467,10 @@
             % 章节标记
             \node[anchor=south west, xshift=-5.6cm, yshift=0.9cm, align=center]
                 at (current page.south east)
-                {\trinum[themeColor]{\heiti\leftmark}};
+                {\trinum[themeColor]{\heiti\truncate{4cm}{\leftmark}}};
             \node[anchor=south west, xshift=-5.6cm, yshift=0.4cm, align=center]
                 at (current page.south east)
-                {\trinum[themeColor]{\heiti\rightmark}};
+                {\trinum[themeColor]{\heiti\truncate{4cm}{\rightmark}}};
 
             % 左下角品牌标识
             \draw[fill=themeColor!6.2, draw=none]

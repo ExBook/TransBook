@@ -2,28 +2,47 @@
   <img src="./logo.svg" alt="TransBook" width="400">
 </div>
 
-# TransBook — 考研英语阅读手译本 LaTeX 文档类
+<div align="center">
+  <img src="https://img.shields.io/github/languages/code-size/ExBook/TransBook" alt="code-size" />
+  <img src="https://img.shields.io/badge/Author-ExBook-orange" alt="Author" />
+  </br>
+  <img src="https://img.shields.io/github/languages/top/ExBook/TransBook?color=yellow" alt="languages-top" />
+  <img src="https://img.shields.io/github/last-commit/ExBook/TransBook" alt="last-commit" />
+  <img src="https://img.shields.io/github/languages/count/ExBook/TransBook" alt="languages-count" />
+</div>
 
-**输入英文句子，自动生成翻译空白横线。右侧「词汇手记」区域，边译边记生词。**
-
----
-
-## 功能特点
-
-1. **智能横线生成**：输入一句英文，自动根据句子长度计算所需翻译横线数量
-2. **段落分组**：`Paragraph` 环境自动标注「第一段」「第二段」...
-3. **带圈编号**：每句前面自动生成主题色圆形编号
-4. **词汇手记区**：页面右侧约 60mm 宽的笔记区域，用于记录生词和短语
-5. **参考译文**：可选的译文对照功能，一键显示/隐藏
-6. **「稿纸手写」风格封面**：左侧主题色竖条 + 右侧英文句与横线装饰
-7. **12 种颜色主题**：4 种经典 + 8 种 MBTI 个性色
-8. **支持 A4 / B5**：文档类选项切换
-9. **深色模式**：全局暗色主题
-10. **外部配置**：`config.tex` 一键修改品牌文字、主题色、水印等
+<div align="center">
+  <a href="https://exbook.github.io/transbook/">官方网站</a>
+</div>
 
 ---
 
-## 快速开始
+# 简介
+
+**TransBook** 是一个专为考研英语阅读理解翻译练习设计的 LaTeX 文档类。输入英文句子，自动根据句子长度生成翻译空白横线，右侧还配有「词汇手记」区域用于记录生词和短语。
+
+<div align="center">
+  <img src="./README.IMAGE/preview1.png" width="45%">
+  &nbsp;
+  <img src="./README.IMAGE/preview2.png" width="45%">
+</div>
+
+**功能特点：**
+
+1. **智能横线生成**：`\Sentence` 命令自动测量句子宽度，根据行宽计算所需翻译横线数量，无需手动调整
+2. **段落自动分组**：`Paragraph` 环境自动标注「第一段」「第二段」……，`reset` 参数可重置段落内句子编号
+3. **带圈句子编号**：每句前自动生成主题色圆形编号，清晰标记句序
+4. **词汇手记区**：页面右侧约 60mm 宽的专用笔记区域，浅色填充 + 主题色左边界线，标题「词汇手记」
+5. **参考译文**：`translation` 环境，`showtrans` 选项一键显示/隐藏译文
+6. **「稿纸手写」风格封面**：左侧 12% 窄主题色竖条 + 右侧英文例句与翻译横线装饰
+7. **12 种颜色主题**：封面、句子编号、侧边栏全部跟随主题色切换
+8. **深色模式**：全局 `darkmode` 选项
+9. **支持 A4 / B5**：文档类选项一键切换
+10. **外部配置**：`config.tex` 管理品牌文字、主题色、水印等全部设置
+
+---
+
+# 快速开始
 
 ```bash
 # 编译
@@ -38,6 +57,8 @@ latexmk -c
 
 ---
 
+# 文档类参考
+
 ## 文档类选项
 
 | 选项 | 默认 | 说明 |
@@ -50,22 +71,29 @@ latexmk -c
 | `darkmode` | false | 深色模式 |
 | `showtrans` | false | 显示参考译文 |
 
----
+## 封面设置
 
-## 配置说明
-
-所有配置在 `config.tex` 中完成：
+打开 `config.tex`：
 
 ```latex
-% 封面
 \Title{考研英语手译本}
 \Subtitle{阅读逐句翻译练习}
 \Author{研小布}
+\Motto{Practice makes perfect.}
+\UpdateTime{2026.05}
+```
 
-% 主题色（12 种可选）
-\setThemeColor{\orange}
+## 主题颜色
 
-% 品牌文字
+```latex
+% 经典色：\blue \green \purple \orange（默认）
+% MBTI 色：\infj \enfp \infp \esfp \intj \entp \isfj \enfj
+\setThemeColor{\purple}
+```
+
+## 品牌文字
+
+```latex
 \FooterText{此手译本由公众号【研小布】排版制作}
 \SidebarTitle{词汇手记}
 \BrandName{研小布}
@@ -73,28 +101,33 @@ latexmk -c
 
 ---
 
-## 命令参考
+# 命令参考
 
-### 段落与句子
+## 段落与句子
 
 ```latex
-\begin{Paragraph}[reset]       % reset 可选：重置该段落句子编号
-    \Sentence{English sentence to translate.}
-    \Sentence{Another sentence.}
+\section{2021 年英语一真题阅读}
+\subsection{Text 1 — The Value of Higher Education}
+
+\begin{Paragraph}[reset]       % reset 可选：重置段落内句子编号
+    \Sentence{How does the author view the value of higher education?}
+
+    \Sentence{The financial return on a college degree has become a
+    widely debated topic.}
+
+    \Sentence{Recent research suggests that the wage premium for
+    college graduates remains substantial.}
+    \begin{translation}
+        近期研究表明，大学毕业生的工资溢价仍然可观。
+    \end{translation}
 \end{Paragraph}
 ```
 
-### 参考译文
+- `Paragraph` 环境：自动标注「第一段」「第二段」……，`reset` 参数重置句子编号
+- `Sentence` 命令：自动测量句子宽度，生成对应数量的翻译横线
+- `translation` 环境：参考译文，由 `showtrans` 选项控制显示/隐藏
 
-```latex
-\begin{translation}[参考译文：]   % 可选参数：标题前缀
-    此处填写译文内容...
-\end{translation}
-```
-
-用 `showtrans` 文档类选项控制全局显示/隐藏。
-
-### 工具命令
+## 工具命令
 
 | 命令 | 说明 |
 |------|------|
@@ -105,14 +138,53 @@ latexmk -c
 
 ---
 
-## 项目结构
+# 完整示例
+
+`main.tex`：
+
+```latex
+\documentclass[a4paper, showtrans]{TransBook}
+
+\begin{document}
+
+\include{config}
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{2021 年英语一真题}
+
+\subsection{Text 1 — The Value of Higher Education}
+
+\begin{Paragraph}[reset]
+    \Sentence{How does the author view the value of higher education?}
+
+    \Sentence{The financial return on a college degree has become a
+    widely debated topic.}
+    \begin{translation}
+        大学学位带来的经济回报已成为广泛讨论的话题。
+    \end{translation}
+
+    \Sentence{Recent research suggests that the wage premium for
+    college graduates remains substantial.}
+    \begin{translation}
+        近期研究表明，大学毕业生的工资溢价仍然可观。
+    \end{translation}
+\end{Paragraph}
+
+\end{document}
+```
+
+---
+
+# 项目结构
 
 ```
 TransBook/
 ├── TransBook.cls          # 类文件
 ├── config.tex             # 用户配置
 ├── .latexmkrc             # 编译配置
-├── README.md              # 本文档
 ├── main.tex               # 示例文档
 └── img/                   # 图片（可选）
     ├── cover.jpg

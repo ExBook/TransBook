@@ -19,7 +19,7 @@
 
 # 简介
 
-**TransBook** 是一个专为考研英语阅读理解翻译练习设计的 LaTeX 文档类。输入英文句子，自动根据句子长度生成翻译空白横线，右侧还配有「词汇手记」区域用于记录生词和短语。
+**TransBook** 是一个专为英语阅读理解翻译练习设计的 LaTeX 文档类。输入英文句子，自动根据句子长度生成翻译空白横线，右侧还配有「词汇手记」区域用于记录生词和短语。
 
 <div align="center">
   <img src="./README.IMAGE/preview1.png" width="45%">
@@ -80,7 +80,7 @@ latexmk -c
 打开 `config.tex`：
 
 ```latex
-\Title{考研英语手译本}
+\Title{英语阅读手译本}
 \Subtitle{阅读逐句翻译练习}
 \Author{研小布}
 \Motto{Practice makes perfect.}

@@ -1,28 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 90" fill="none">
-  <g transform="translate(0, 45)">
-    <!-- Main document with translation icon -->
-    <g transform="translate(28, -32)">
-      <!-- Document shape -->
-      <path d="M4 0C1.8 0 0 1.8 0 4v44c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4V16L22 0H4z" fill="#61589B" opacity="0.12"/>
-      <path d="M22 0v14c0 1.1.9 2 2 2h10L22 0z" fill="#61589B" opacity="0.06"/>
-      <!-- Text lines -->
-      <line x1="6" y1="10" x2="18" y2="10" stroke="#61589B" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
-      <line x1="6" y1="17" x2="16" y2="17" stroke="#61589B" stroke-width="1" stroke-linecap="round" opacity="0.25"/>
-      <line x1="6" y1="24" x2="19" y2="24" stroke="#61589B" stroke-width="1" stroke-linecap="round" opacity="0.25"/>
-      <line x1="6" y1="31" x2="14" y2="31" stroke="#61589B" stroke-width="1" stroke-linecap="round" opacity="0.25"/>
-      <!-- Translate arrows circle -->
-      <circle cx="22" cy="40" r="8" fill="#61589B" opacity="0.85"/>
-      <path d="M18 40l1.5-2 1.5 2M20 36.5v6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <!-- Small secondary document -->
-    <g transform="translate(62, -10)">
-      <path d="M2 0C0.9 0 0 0.9 0 2v24c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9L14 0H2z" fill="#61589B" opacity="0.07"/>
-      <path d="M14 0v7.5c0 .8.7 1.5 1.5 1.5H20L14 0z" fill="#61589B" opacity="0.04"/>
-      <line x1="3" y1="7" x2="12" y2="7" stroke="#61589B" stroke-width="0.8" stroke-linecap="round" opacity="0.25"/>
-      <line x1="3" y1="12" x2="10" y2="12" stroke="#61589B" stroke-width="0.8" stroke-linecap="round" opacity="0.18"/>
-      <line x1="3" y1="17" x2="11" y2="17" stroke="#61589B" stroke-width="0.8" stroke-linecap="round" opacity="0.18"/>
-    </g>
-    <!-- Text -->
-    <text x="94" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#61589B" letter-spacing="-1" dominant-baseline="central">TransBook</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 72">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#61589B" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#61589B" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <!-- Background badge -->
+  <rect x="0" y="6" width="68" height="60" rx="12" fill="url(#bg3)"/>
+  <!-- Document -->
+  <path d="M14 14h24v32c0 2.2-1.8 4-4 4h-16c-2.2 0-4-1.8-4-4V14z" fill="#61589B" opacity="0.12"/>
+  <path d="M38 14v8c0 .6.4 1 1 1h7L38 14z" fill="#61589B" opacity="0.06"/>
+  <!-- Lines -->
+  <line x1="18" y1="22" x2="32" y2="22" stroke="#61589B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+  <line x1="18" y1="28" x2="30" y2="28" stroke="#61589B" stroke-width="0.8" stroke-linecap="round" opacity="0.25"/>
+  <line x1="18" y1="34" x2="33" y2="34" stroke="#61589B" stroke-width="0.8" stroke-linecap="round" opacity="0.25"/>
+  <line x1="18" y1="40" x2="27" y2="40" stroke="#61589B" stroke-width="0.8" stroke-linecap="round" opacity="0.25"/>
+  <!-- Translate arrow -->
+  <g transform="translate(48, 44)">
+    <circle cx="8" cy="8" r="7" fill="#61589B"/>
+    <path d="M5 8l1.2-1.5 1.2 1.5M6.2 5.5V11" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
+  <!-- Text -->
+  <text x="78" y="47" font-family="system-ui,-apple-system,sans-serif" font-size="32" font-weight="800" fill="#61589B" letter-spacing="-0.5">TransBook</text>
 </svg>

@@ -25,6 +25,10 @@
   <img src="./README.IMAGE/preview1.png" width="45%">
   &nbsp;
   <img src="./README.IMAGE/preview2.png" width="45%">
+  <br>
+  <img src="./README.IMAGE/preview3.png" width="45%">
+  &nbsp;
+  <img src="./README.IMAGE/preview4.png" width="45%">
 </div>
 
 **功能特点：**

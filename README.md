@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./logo.svg" alt="TransBook" width="400">
+</div>
+
 # TransBook — 考研英语阅读手译本 LaTeX 文档类
 
 **输入英文句子，自动生成翻译空白横线。右侧「词汇手记」区域，边译边记生词。**
